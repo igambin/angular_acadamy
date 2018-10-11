@@ -2,32 +2,32 @@
   <header>
     <h1>Signup</h1>
   </header>
-  <form>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
 
     <label for="name">
       Username
     </label>
-    <input type="text" id="name">
+    <input type="text" id="name" formControlName="name">
 
     <label for="home_planet">
       Heimatplanet
     </label>
-    <input type="text" id="home_planet">
+    <input type="text" id="home_planet" formControlName="planet">
 
     <label>
       Geschlecht
     </label>
     <fieldset>
       <div class="radio">
-        <input type="radio" id="undecided" name="gender" value="Unentschlossen">
+        <input type="radio" id="undecided" name="gender" value="Unentschlossen" formControlName="gender">
         <label for="undecided">Unentschlossen</label>
       </div>
       <div class="radio">
-        <input type="radio" id="man" name="gender" value="Mann">
+        <input type="radio" id="man" name="gender" value="Mann" formControlName="gender">
         <label for="man">Mann</label>
       </div>
       <div class="radio">
-        <input type="radio" id="woman" name="gender" value="Frau">
+        <input type="radio" id="woman" name="gender" value="Frau" formControlName="gender">
         <label for="woman">Frau</label>
       </div>
     </fieldset>
@@ -35,12 +35,12 @@
     <label for="age">
       Alter
     </label>
-    <input type="text" id="age">
+    <input type="text" id="age" formControlName="age">
 
     <label for="mail">
       E-Mail Adresse
     </label>
-    <input type="text" id="mail">
+    <input type="text" id="mail" formControlName="mail">
 
     <div class="credit_card_wrapper">
       <label for="credit_card">
@@ -48,61 +48,61 @@
       </label>
 
       <div class="no_cb">
-        <input type="checkbox" id="no_credit_card">
+        <input type="checkbox" id="no_credit_card" formControlName="hasCreditCard">
         <label for="no_credit_card">
           Ich habe keine Kreditkarte
         </label>
       </div>
     </div>
-    <input type="text" id="credit_card">
+    <input type="text" id="credit_card" formControlName="creditCard">
 
     <div class="side_by_side">
       <div>
         <label for="brutto">
           Bruttoeinkommen
         </label>
-        <input type="text" id="brutto">
+        <input type="text" id="brutto" formControlName="brutto">
       </div>
 
       <div>
         <label for="netto">
           Nettoeinkommen
         </label>
-        <input type="text" id="netto">
+        <input type="text" id="netto" formControlName="netto">
       </div>
 
       <div>
         <label for="tax">
           Abgaben in %
         </label>
-        <input type="text" id="tax">
+        <input type="text" id="tax" formControlName="tax">
       </div>
     </div>
 
     <label for="pet">
-      <input type="checkbox" id="pet">
+      <input type="checkbox" id="pet" formControlName="hasPet">
       Ich möchte mein Haustier mitversichern
     </label>
 
     <label for="pet_name">
       Name des Haustieres
     </label>
-    <input type="text" id="pet_name">
+    <input type="text" id="pet_name" formControlName="petName">
 
     <label>
       Art des Haustieres
     </label>
     <fieldset>
       <div class="radio">
-        <input type="radio" id="cat" value="Cat" name="petType">
+        <input type="radio" id="cat" value="Cat" formControlName="petType">
         <label for="cat">Katze</label>
       </div>
       <div class="radio">
-        <input type="radio" id="dog" value="Dog" name="petType">
+        <input type="radio" id="dog" value="Dog" formControlName="petType">
         <label for="dog">Hund</label>
       </div>
       <div class="radio">
-        <input type="radio" id="other" value="Other" name="petType">
+        <input type="radio" id="other" value="Other" formControlName="petType">
         <label for="other">Anderes</label>
       </div>
     </fieldset>

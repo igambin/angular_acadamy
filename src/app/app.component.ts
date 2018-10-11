@@ -1,10 +1,54 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'jc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  private CreditCardRegex = /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/;
+export class AppComponent implements OnInit {
+  public signUpForm: FormGroup;
+
+  constructor(private _fb: FormBuilder) {
+  }
+
+  ngOnInit(): void {
+    this.signUpForm = this._fb.group({
+      name: '',
+      planet: '',
+      gender: '',
+      age: '',
+      mail: '',
+      creditCard: '',
+      hasCreditCard: false,
+      brutto: 12000,
+      netto: 4000,
+      tax: '',
+      hasPet: false,
+      petName: '',
+      petType: ''
+    });
+  }
+
+  public reset(): void {
+    this.signUpForm.reset({
+      name: '',
+      planet: '',
+      gender: '',
+      age: '',
+      mail: '',
+      creditCard: '',
+      hasCreditCard: false,
+      brutto: 12000,
+      netto: 4000,
+      tax: '',
+      hasPet: false,
+      petName: '',
+      petType: ''
+    });
+  }
+
+  public submit(): void {
+    alert('submitted');
+  }
 }
