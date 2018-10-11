@@ -2,7 +2,7 @@
   <header>
     <h1>Signup</h1>
   </header>
-  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()" (reset)="reset($event)">
 
     <label for="name">
       Username
@@ -48,7 +48,7 @@
       </label>
 
       <div class="no_cb">
-        <input type="checkbox" id="no_credit_card" formControlName="hasCreditCard">
+        <input type="checkbox" id="no_credit_card" formControlName="hasNoCreditCard">
         <label for="no_credit_card">
           Ich habe keine Kreditkarte
         </label>
@@ -75,7 +75,7 @@
         <label for="tax">
           Abgaben in %
         </label>
-        <input type="text" id="tax" formControlName="tax">
+        <input type="text" id="tax" disabled [value]="abgaben$ | async | number:'1.0-2'">
       </div>
     </div>
 
@@ -110,7 +110,7 @@
     <div class="form_btns">
       <input type="reset" value="Reset">
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" [disabled]="signUpForm.invalid">
     </div>
 
   </form>
