@@ -16,7 +16,7 @@ Um mit dem Projekt zu arbeiten müsst ihr vorab einige Tools installieren und ei
 Wenn ihr alles eingerichtet habt könnt ihr das Repo klonen.
 Dafür öffnet ihr euer bevorzugtes Terminal im Wunschverzeichnis und führt folgendes aus:
 ```console
-git clone https://github.com/bzmmarvin222/angular_acadamy.git
+git clone https://github.com/igambin/angular_academy.git
 ```
 
 Nachdem ihr es geklont habt müsst ihr noch vorab einiges an Dependencies ziehen.
