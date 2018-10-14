@@ -1,58 +1,25 @@
 <div class="chat">
   <header>
-    <h1>Most Epic Jedi Chat</h1>
+    <h1>Most(?!?!) Epic Jedi Chat</h1>
   </header>
   <main>
+
     <div class="chat-message-list">
-      <div class="chat-message center alert-info">
-        <div class="chat-message-content">
-          Welcome to Jedi Chat!
-        </div>
-        <div class="chat-message-user">
-          Channel Bot
-        </div>
+
+      <div *ngFor="let msg of messages" class="chat-message {{msg.classTags}}">
+        <div class="chat-message-content">{{msg.text}}</div>
+        <div class="chat-message-user">{{msg.sender}}</div>
       </div>
 
-      <div class="chat-message left">
-        <div class="chat-message-content">
-          Hello World!
-        </div>
-        <div class="chat-message-user">
-          User 1
-        </div>
-      </div>
-
-      <div class="chat-message">
-        <div class="chat-message-content">
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-          sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr&hellip;
-        </div>
-        <div class="chat-message-user">
-          User 2
-        </div>
-      </div>
-
-      <div class="chat-message right">
-        <div class="chat-message-content">
-          Weit hinten, hinter den Wortbergen, fern der Länder Vokalien und Konsonantien leben die Blindtexte. Abgeschieden wohnen sie in Buchstabhausen an der Küste des Semantik, eines großen Sprachozeans. Ein kleines Bächlein namens Duden&hellip;
-        </div>
-        <div class="chat-message-user">
-          User 3
-        </div>
-      </div>
-
-      <div class="chat-message left">
-        <div class="chat-message-content">
-          Er hörte leise Schritte hinter sich. Das bedeutete nichts Gutes. Wer würde ihm schon folgen, spät in der Nacht und dazu noch in dieser engen Gasse mitten im übel beleumundeten Hafenviertel? Gerade jetzt, wo er das Ding seines Lebens gedreht hatte...
-        </div>
-        <div class="chat-message-user">
-          User 4
-        </div>
-      </div>
     </div>
+
     <div class="chat-message-input">
-      <input type="text">
-      <button>Send</button>
+      <input id="inputField" [(ngModel)]="input" type="text"
+              (keyup.enter)="onClick($event)">
+      <button (click)="onClick($event)"
+              (contextmenu)="onRightClick($event)">
+        Send
+      </button>
     </div>
   </main>
   <footer>

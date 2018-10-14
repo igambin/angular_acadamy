@@ -87,9 +87,15 @@ body {
       }
       &.right {
         margin-left: 40px;
+        .chat-message-content {
+          background-color: $rightAlignedMessageBG;
+        }
       }
       &.left {
         margin-right: 40px;
+        .chat-message-content {
+          background-color: $leftAlignedMessageBG;
+        }
         .chat-message-user {
           text-align: left;
           padding-left: 8px;
@@ -111,12 +117,12 @@ body {
         }
       }
       .chat-message-content {
-        background-color: $lightgray;
         color: $darkgray;
         padding: 8px;
-        border-radius: 8px;
+        border-radius: 6px;
       }
       .chat-message-user {
+        font: bold 0.8em 'Courier New';
         text-align: right;
         padding-right: 8px;
       }
