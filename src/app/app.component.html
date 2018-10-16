@@ -4,23 +4,8 @@
   </header>
   <main>
 
-    <div class="chat-message-list">
+    <jc-chat></jc-chat>
 
-      <div *ngFor="let msg of messages" class="chat-message {{msg.classTags}}">
-        <div class="chat-message-content">{{msg.text}}</div>
-        <div class="chat-message-user">{{msg.sender}}</div>
-      </div>
-
-    </div>
-
-    <div class="chat-message-input">
-      <input id="inputField" [(ngModel)]="input" type="text"
-              (keyup.enter)="onClick($event)">
-      <button (click)="onClick($event)"
-              (contextmenu)="onRightClick($event)">
-        Send
-      </button>
-    </div>
   </main>
   <footer>
     &copy; by me

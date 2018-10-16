@@ -1,0 +1,8 @@
+<div class="chat-message-input">
+  <input id="inputField" type="text" [(ngModel)]="input"
+         (keyup.enter)="onClick($event)">
+  <button (click)="onClick($event)"
+          (contextmenu)="onRightClick($event)">
+    Send
+  </button>
+</div>
