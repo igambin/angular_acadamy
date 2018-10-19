@@ -1,8 +1,12 @@
-<div class="chat-message-input">
-  <input id="inputField" type="text" [(ngModel)]="input"
-         (keyup.enter)="onClick($event)">
-  <button (click)="onClick($event)"
-          (contextmenu)="onRightClick($event)">
-    Send
-  </button>
-</div>
+  <div class="input-group chat-message-input">
+    <textarea id="inputField" type="text" class="form-control h-100 rounded-0"
+           [(ngModel)]="input" placeholder="enter your message"
+              (keyup.enter)="onClick($event)"></textarea>
+    <div class="input-group-append">
+      <button class="btn btn-primary rounded-0"
+              (click)="onClick($event)"
+              (contextmenu)="onRightClick($event)">
+        Send
+      </button>
+    </div>
+  </div>

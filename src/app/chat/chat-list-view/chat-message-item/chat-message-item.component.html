@@ -1,4 +1,6 @@
-<div class="chat-message {{message.classTags}}">
-  <div class="chat-message-content">{{message.text}}</div>
-  <div class="chat-message-user">{{message.sender}}</div>
+<div class="card shadow w-75 {{message.isAlert}} {{message.cardAlign}}">
+  <div class="card-body ">
+    <p class="card-text {{message.textAlign}}">{{message.text}}</p>
+  </div>
+  <div class="card-footer {{message.textAlign}}">{{message.sender}} <span>({{message.time}})</span></div>
 </div>
