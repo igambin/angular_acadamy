@@ -1,0 +1,19 @@
+jc-chat-list-view {
+  width: 90%;
+  margin-left: 10%;
+  padding-right: 10%;
+  padding-top: 10px;
+
+  flex: 1;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+jc-chat-input-form {
+  flex: none;
+}
