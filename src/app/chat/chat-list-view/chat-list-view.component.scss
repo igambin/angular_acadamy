@@ -1,6 +1,26 @@
-jc-chat-message-item
-{
-  flex: 0;
+@import '../../../app/styles/colors.scss';
+
+.card {
+  flex: none;
+  z-index: 100;
+  margin-bottom: 1em;
 }
 
+.card-body {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.9em;
+}
 
+.card-footer {
+  padding: 5px 10px 5px 10px;
+  font-size: 0.7em;
+}
+
+.ml-auto {
+  background-color: $rightAlignedMessageBG !important;
+}
+
+.mr-auto {
+  background-color: $leftAlignedMessageBG !important;
+}

@@ -1,4 +1,7 @@
-  <jc-chat-message-item
-      *ngFor="let msg of messageList"
-      [message] = "msg">
-  </jc-chat-message-item>
+    <div *ngFor="let message of messageList"
+         class="card shadow {{message.isAlert}} {{message.cardAlign}}">
+      <div class="card-body ">
+        <p class="card-text {{message.textAlign}}">{{message.text}}</p>
+      </div>
+      <div class="card-footer {{message.textAlign}}">{{message.sender}} <span>({{message.time}})</span></div>
+    </div>

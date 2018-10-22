@@ -1,13 +1,14 @@
 jc-chat-list-view {
-  width: 90%;
+  z-index: 200;
+  height: 100vh;
   margin-left: 10%;
   padding-right: 10%;
   padding-top: 10px;
 
   flex: 1;
+
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-
 
   display: flex;
   flex-direction: column;

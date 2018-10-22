@@ -6,6 +6,8 @@ export class Message {
   public textAlign: string;
   public time: string;
 
+  private alertFormat: string = 'bg-primary text-white' ;
+
   private textAlignmentRules: Map<string, string> = new Map([
     ['me'     , 'text-left'],
     ['Channel', 'text-center'],
@@ -13,18 +15,30 @@ export class Message {
   );
 
   private cardAlignmentRules: Map<string, string> = new Map([
-    ['me'     , 'w-75 float-left'],
+    ['me'     , 'w-75 mr-auto'],
     ['Channel', 'w-100 center'],
-    ['default', 'w-75 float-right']]
+    ['default', 'w-75 ml-auto']]
   );
 
+
   constructor(text: string, sender: string, isAlert: boolean = false) {
-    this.text = text;
-    this.sender = sender;
-    this.isAlert = isAlert ? 'bg-primary text-white' : '';
+    if(text.startsWith('/ ')) {
+      this.text = this.processChannelResponse(text);
+      this.sender = 'Channel';
+      this.isAlert = this.alertFormat;
+    } else {
+      this.text = text;
+      this.sender = sender;
+    }
+    this.isAlert = isAlert ? this.alertFormat : '';
     this.cardAlign = this.evaluateCardAlignment();
     this.textAlign = this.evaluateTextAlignment();
     this.time = new Date().toLocaleTimeString('de-DE');
+  }
+
+  private processChannelResponse(text: string): string
+  {
+
   }
 
   private evaluateCardAlignment(): string {
