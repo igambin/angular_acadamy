@@ -1,9 +1,21 @@
 @import '../../../app/styles/colors.scss';
 
+:host {
+  display: block;
+  .scrollContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: black;
+    flex-wrap: wrap;
+    min-height: 100%;
+  }
+}
+
 .card {
   flex: none;
   z-index: 100;
-  margin-bottom: 1em;
+  margin-bottom: 3em;
 }
 
 .card-body {

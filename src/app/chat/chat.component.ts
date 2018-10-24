@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Message} from './models/message';
+
 
 @Component({
   selector: 'jc-chat',
@@ -17,10 +18,12 @@ export class ChatComponent implements OnInit {
   }
 
   public addMessage(msg: Message): void {
-    if (!this.isNullOrWhitespace(msg.text)) { this.messages.push(msg); }
+    if (!this.isNullOrWhitespace(msg.text)) {
+      this.messages.push(msg);
+    }
   }
 
-  public isNullOrWhitespace(str): boolean{
+  public isNullOrWhitespace(str): boolean {
     return str === null || str.match(/^\s*$/) !== null;
   }
 }

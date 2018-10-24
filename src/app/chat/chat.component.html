@@ -1,2 +1,2 @@
-<jc-chat-list-view [messageList]="messages"></jc-chat-list-view>
+<jc-chat-list-view #scrollMe [messageList]="messages"></jc-chat-list-view>
 <jc-chat-input-form (messageCreated) = "addMessage($event)"></jc-chat-input-form>
