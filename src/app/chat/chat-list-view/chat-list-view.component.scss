@@ -31,6 +31,16 @@
   margin: 3px 0;
 }
 
+.card.bg-primary.neighbor {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.card.bg-primary.hasFollowUps {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .card.incoming > .card-body > .card-text.incoming {
   display: block !important;
   font-size: .7em;
