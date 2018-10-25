@@ -4,51 +4,44 @@ export class Message {
   public isAlert: string;
   public cardAlign: string;
   public textAlign: string;
-  public time: string;
+  public createdAt: Date;
 
   private alertFormat = 'bg-primary text-white' ;
 
   private textAlignmentRules: Map<string, string> = new Map([
-    ['me'     , 'text-left'],
+    ['default', 'text-left'],
     ['Channel', 'text-center'],
-    ['default', 'text-right']]
+    ['me'     , 'text-right']]
   );
 
   private cardAlignmentRules: Map<string, string> = new Map([
-    ['me'     , 'w-75 mr-auto'],
+    ['me'     , 'w-75 ml-auto'],
     ['Channel', 'w-100 center'],
-    ['default', 'w-75 ml-auto']]
+    ['default', 'w-75 mr-auto incoming']]
   );
-
 
   constructor(text: string, sender: string, isAlert: boolean = false) {
     this.text = text;
-    this.sender = sender;
+    if (text.startsWith('/c ')) {
+      this.text = this.text.substring(3);
+      this.sender = 'Channel';
+      isAlert = true;
+    } else {
+      this.sender = sender;
+    }
     this.isAlert = isAlert ? this.alertFormat : '' ;
     this.cardAlign = this.evaluateCardAlignment();
     this.textAlign = this.evaluateTextAlignment();
-    this.time = new Date().toLocaleTimeString('de-DE');
+    this.createdAt = new Date();
   }
 
   private evaluateCardAlignment(): string {
-    const classes: string[] = [];
-    // check alignment
-    if (this.cardAlignmentRules.get(this.sender) === undefined) {
-      this.sender = 'default';
-    }
-    classes.push(this.cardAlignmentRules.get(this.sender));
-    // return classTags
-    return classes.filter(Boolean).join(' ');
+    if (this.cardAlignmentRules.get(this.sender) === undefined) { this.sender = 'default'; }
+    return this.cardAlignmentRules.get(this.sender);
   }
 
   private evaluateTextAlignment(): string {
-    const classes: string[] = [];
-    // check alignment
-    if (this.textAlignmentRules.get(this.sender) === undefined) {
-      this.sender = 'default';
-    }
-    classes.push(this.textAlignmentRules.get(this.sender));
-    // return classTags
-    return classes.filter(Boolean).join(' ');
+    if (this.textAlignmentRules.get(this.sender) === undefined) { this.sender = 'default'; }
+    return this.textAlignmentRules.get(this.sender);
   }
 }
