@@ -34,8 +34,8 @@ export class ChatInputFormComponent {
       const msg = new Message(this.input, sender);
       this.dataService.AddMessage(msg);
       this.input = '';
-      document.getElementById('inputField').focus();
     }
+    document.getElementById('inputField').focus();
   }
 
   public isNullOrWhitespace(str): boolean {

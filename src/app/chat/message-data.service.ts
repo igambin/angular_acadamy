@@ -19,8 +19,17 @@ export class MessageDataService {
 
   public AddMessage(message: Message): void {
     if (message) {
+      const latestMessage = this.latestMessage();
+      if (message.sender === latestMessage.sender) {
+        latestMessage.cardAlign += ' hasFollowUps';
+        message.cardAlign += ' neighbor';
+      }
       this.messages.push(message);
       this.messageCreated.emit(message);
     }
+  }
+
+  private latestMessage(): Message {
+    return this.messages[this.messages.length - 1];
   }
 }

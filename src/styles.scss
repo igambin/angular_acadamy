@@ -1,14 +1,10 @@
 @import './app/styles/colors.scss';
 
-/* You can add global styles to this file, and also import other style files */
 * {
   z-index: 100;
 }
 
 html, body {
-  //background-image: url('/assets/images/background.png');
-  //background-repeat: no-repeat;
-  //background-size: cover;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   color: $darkgray;
@@ -16,7 +12,7 @@ html, body {
   min-height: 100%;
 }
 
-navbar {
+.navbar {
   height: 50px;
 }
 

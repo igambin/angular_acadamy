@@ -15,13 +15,20 @@
 .card {
   flex: none;
   z-index: 100;
+  border-radius: 16px;
+  border: 0;
   margin-bottom: 4em;
+  padding: 5px 10px;
 }
 
 .card-body {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   font-size: 0.9em;
+}
+
+.card-body p {
+  margin: 3px 0;
 }
 
 .card.incoming > .card-body > .card-text.incoming {
@@ -29,18 +36,73 @@
   font-size: .7em;
   font-weight: bold;
   color: $leftAlignedMessageSenderColor;
-  margin: 0; padding: 0;
 }
 
-.card-footer {
-  padding: 5px 10px 5px 10px;
+.card.incoming.neighbor > .card-body > .card-text.incoming {
+  display: none !important;
+  font-size: .7em;
+  font-weight: bold;
+  color: $leftAlignedMessageSenderColor;
+}
+
+.card.hasFollowUps > .card-body > .card-time {
+  display: none !important;
+  padding-bottom: 5px;
+  font-size: .7em;
+  font-weight: bold;
+  color: $leftAlignedMessageSenderColor;
+}
+
+.card.neighbor {
+  padding-top: 0;
+  margin-top: -4em;
+}
+
+.card.hasFollowUps > .card-body > .card-text {
+  margin-bottom: 0;
+}
+.card.neighbor > .card-body > .card-text{
+  margin-top: 0;
+}
+
+.card-time {
   font-size: 0.7em;
+  padding-top: 0;
+  color: gray;
 }
 
-.ml-auto {
+.card.bg-primary > .card-body > .card-time {
+  color: white;
+}
+
+.card.ml-auto {
   background-color: $rightAlignedMessageBG !important;
+  border-bottom-right-radius: 0;
 }
 
-.mr-auto {
+.card.mr-auto {
   background-color: $leftAlignedMessageBG !important;
+  border-bottom-left-radius: 0;
+}
+
+.card.ml-auto.hasFollowUps {
+  background-color: $rightAlignedMessageBG !important;
+  border-bottom-left-radius: 0;
+}
+
+.card.mr-auto.hasFollowUps {
+  background-color: $leftAlignedMessageBG !important;
+  border-bottom-right-radius: 0;
+}
+
+.card.ml-auto.neighbor {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card.mr-auto.neighbor {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

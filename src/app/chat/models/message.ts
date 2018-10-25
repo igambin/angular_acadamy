@@ -9,15 +9,15 @@ export class Message {
   private alertFormat = 'bg-primary text-white' ;
 
   private textAlignmentRules: Map<string, string> = new Map([
-    ['default', 'text-left'],
+    ['remote' , 'text-left'  ],
     ['Channel', 'text-center'],
-    ['me'     , 'text-right']]
+    ['me'     , 'text-right' ]]
   );
 
   private cardAlignmentRules: Map<string, string> = new Map([
-    ['me'     , 'w-75 ml-auto'],
-    ['Channel', 'w-100 center'],
-    ['default', 'w-75 mr-auto incoming']]
+    ['me'     , 'w-75 ml-auto'         ],
+    ['Channel', 'w-100 center'         ],
+    ['remote' , 'w-75 mr-auto incoming']]
   );
 
   constructor(text: string, sender: string, isAlert: boolean = false) {
@@ -36,12 +36,12 @@ export class Message {
   }
 
   private evaluateCardAlignment(): string {
-    if (this.cardAlignmentRules.get(this.sender) === undefined) { this.sender = 'default'; }
+    if (this.cardAlignmentRules.get(this.sender) === undefined) { this.sender = 'remote'; }
     return this.cardAlignmentRules.get(this.sender);
   }
 
   private evaluateTextAlignment(): string {
-    if (this.textAlignmentRules.get(this.sender) === undefined) { this.sender = 'default'; }
+    if (this.textAlignmentRules.get(this.sender) === undefined) { this.sender = 'remote'; }
     return this.textAlignmentRules.get(this.sender);
   }
 }
