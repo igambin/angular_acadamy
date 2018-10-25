@@ -1,14 +1,15 @@
-import {AfterViewInit, Component, ElementRef, Input, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Message} from '../models/message';
+import {MessageDataService} from '../message-data.service';
 
 @Component({
   selector: 'jc-chat-list-view',
   templateUrl: './chat-list-view.component.html',
   styleUrls: ['./chat-list-view.component.scss']
 })
-export class ChatListViewComponent implements AfterViewInit {
-  @Input()
-  public messageList: Message[];
+export class ChatListViewComponent implements OnInit, AfterViewInit {
+
+  public messageList: Message[] = [];
 
   @ViewChild('messageContainer', {read: ElementRef })
   messageContainer: ElementRef<HTMLElement>;
@@ -16,7 +17,17 @@ export class ChatListViewComponent implements AfterViewInit {
   @ViewChildren('messageElement', {read: ElementRef})
   chatMessages: QueryList<ElementRef>;
 
-  constructor(private elementRef: ElementRef){
+  constructor(
+    private elementRef: ElementRef,
+    private messageDataService: MessageDataService) { }
+
+  ngOnInit(): void {
+    this.messageDataService.GetAll().forEach(
+      (item) => this.messageList.push(item)
+    );
+    this.messageDataService.messageCreated.subscribe(
+      (msg) => this.messageList.push(msg)
+    );
   }
 
   ngAfterViewInit() {
@@ -26,18 +37,9 @@ export class ChatListViewComponent implements AfterViewInit {
   }
 
   scrollToBottom() {
-
     this.elementRef.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
-
-//    const viewportHeight = this.elementRef.nativeElement.getBoundingClientRect().height;
-//    const messageContainerHeight = this.messageContainer.nativeElement.getBoundingClientRect().height;
-//    const heightDif = messageContainerHeight - viewportHeight;
-
-//    if (heightDif > 0) {
-//      this.elementRef.nativeElement.scrollTop = heightDif;
-//    }
-
   }
+
 
 }
 
