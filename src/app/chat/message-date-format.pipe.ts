@@ -8,14 +8,15 @@ import {Message} from './models/message';
 
 export class MessageDateFormatPipe implements PipeTransform {
 
-  private second = 1;
-  private minute = 60 * this.second;
-  private hour = 60 * this.minute;
-  private day = 24 * this.hour;
-  private week = 7 * this.day;
-  private month = 30 * this.day;
-  private year = 364 * this.day;
-  private decade = 10 * this.year + 2 * this.day;
+  private second =    1;
+  private minute =   60 * this.second;
+  private hour   =   60 * this.minute;
+  private day    =   24 * this.hour;
+  private week   =    7 * this.day;
+  private month  =   30 * this.day;
+  private year   =  364 * this.day;
+  private decade =   10 * this.year
+                  + 2.5 * this.day;
 
   transform(message: Message, refDate: Date = new Date()): string {
     if (refDate < message.createdAt) {
