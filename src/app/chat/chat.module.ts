@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { ChatComponent } from './chat.component';
 import { ChatListViewComponent } from './chat-list-view/chat-list-view.component';
 import { ChatInputFormComponent } from './chat-input-form/chat-input-form.component';
-import { MessageDateFormatPipe } from './message-date-format.pipe';
-import {MessageDataService} from './message-data.service';
+import { MessageDateFormatPipe } from './services/message-date-format.pipe';
+import {MessageDataService} from './services/message-data.service';
 
 @NgModule({
   declarations: [

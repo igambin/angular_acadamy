@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Message} from '../models/message';
-import {MessageDataService} from '../message-data.service';
+import {MessageDataService} from '../services/message-data.service';
 
 @Component({
   selector: 'jc-chat-list-view',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Message } from '../models/message';
-import { MessageDataService } from '../message-data.service';
+import { MessageDataService } from '../services/message-data.service';
 
 @Component({
   selector: 'jc-chat-input-form',
