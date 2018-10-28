@@ -3,7 +3,7 @@
     <div class="card-body">
       <p style="display: none;" class="card-text incoming {{message.textAlign}}">{{message.sender}}</p>
       <p class="card-text {{message.textAlign}}">{{message.text}}</p>
-      <p class="card-time {{message.textAlign}}"><span>{{message | messageDateFormat}}</span></p>
+      <p class="card-time {{message.textAlign}}"><span>{{message | messageDateFormat:currentTime }}</span></p>
     </div>
   </div>
 </div>

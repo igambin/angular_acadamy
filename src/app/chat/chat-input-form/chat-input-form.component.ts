@@ -13,7 +13,7 @@ export class ChatInputFormComponent {
   public input: string;
 
   constructor(
-    private dataService: MessageDataService
+    private dataService: MessageDataService,
   ) {
     this.input = '';
   }
