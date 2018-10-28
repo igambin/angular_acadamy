@@ -36,6 +36,10 @@
   border-top-right-radius: 0;
 }
 
+.card.bg-primary.neighbor > .card-body > .card-text {
+  font-weight: normal !important;
+}
+
 .card.bg-primary.hasFollowUps {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

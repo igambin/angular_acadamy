@@ -12,15 +12,13 @@ import {MinuteTimerService} from '../../services/minute-timer.service';
 
 export class ChatListViewComponent implements OnInit, AfterViewInit, OnDestroy, DoCheck {
 
-  public messageList: Message[] = [];
-
-  private subscription: Subscription;
-
   public currentTime: Date;
+
+  public messageList: Message[] = [];
+  private subscription: Subscription;
 
   @ViewChild('messageContainer', {read: ElementRef })
   messageContainer: ElementRef<HTMLElement>;
-
   @ViewChildren('messageElement', {read: ElementRef})
   chatMessages: QueryList<ElementRef>;
 

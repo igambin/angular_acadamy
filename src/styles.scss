@@ -27,27 +27,25 @@ jc-root {
 
 footer{
   color: gold;
-  font-size: .6em;
+  font-size: .7em;
   height: 50px;
 }
 
 .jeditilt {
   display: flex;
   perspective: 100px;
-  span {
+  span,div  {
     text-align: center;
-    transform: rotatex(30deg);
+    transform: rotatex(20deg);
     text-effect: outline;
     color: gold;
     text-shadow: 0 0 10px black;
   }
 }
 
-.bg-primary{
-  background-color: darkblue !important;
-}
-
-.btn-primary{
-  background-color: darkblue !important;
-  border-color: darkblue !important;
+.bg-primary, .btn-primary {
+  background-color: blue !important;
+  border-color: blue !important;
+  color: gold !important;
+  font-weight: bold;
 }
